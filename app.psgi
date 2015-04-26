@@ -1,13 +1,9 @@
 #!/usr/bin/env perl
 
-package Introspect;
-use Web::Simple;
+use strict;
+use warnings;
+use Dancer2;
 
-sub dispatch_request {
-  return (
-    sub (GET) { [200, ['Content-type', 'text/plain'], ['This are not the droids you are looking for']] },
-    sub ()    { [405, ['Content-type', 'text/plain'], ['Method not allowed']] },
-  );
-}
+get '/' => sub { return "This are not the droids you are looking for..." };
 
-Introspect->run_if_script;
+dance;
