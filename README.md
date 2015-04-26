@@ -11,10 +11,10 @@ This solution is inspired by the
 [EC2 instance metadata service](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
 
 The choices made during the design and development of this solution
-assume the following assumpitons:
+assume the following assumptions:
 
 * you have control of the host system where `dockerd` runs;
-* you have no control on how containers are started (ie. you cannot
+* you have no control on how containers are started (i.e. you cannot
   interfere how `docker run` is called);
 * you can alter the container images that you are going to run to use
   this service.
@@ -28,7 +28,7 @@ Unfortunately yes. There are a couple of issues open on Docker that
 should eventually cover this, and make this software obsolete:
 
 * [#8427](https://github.com/docker/docker/issues/8427): this actually
-  proposes something similiar to docker-introspect solution;
+  proposes something similar to docker-introspect solution;
 * [#7472](https://github.com/docker/docker/issues/7472): this covers
   only getting the IP of the host, but if we have that, at least we
   could stop needing the well-known IP address.
@@ -68,7 +68,7 @@ your containers.
 
 *Please note* that you can use just about any private IP, as long it is
 not in use on your infrastructure. The IP `169.254.42.42` is just a
-recomendation.
+recommendation.
 
 
 # API #
@@ -82,7 +82,7 @@ answers, basic shell plus `curl` should be enough to use the API.
 
 The endpoint of the API is `http://169.254.42.42:4242` assuming you
 followed the above instructions, but you can use a different IP and
-port. If you do so, adjust the endpoint acordingly.
+port. If you do so, adjust the endpoint accordingly.
 
 
 ## Versions ##
@@ -97,7 +97,7 @@ placeholder.
 
 ## Container ID ##
 
-Some of the API require your container ID. At this moment, thre is no
+Some of the API require your container ID. At this moment, there is no
 official API for a container to obtain his ID.
 
 The best workaround we could find so far is parsing the contents of
@@ -128,7 +128,7 @@ The following items will probably make it for a future version:
 
 * use `Accept` header to return JSON replies, easier to other
   languages to parse;
-* proxy some of Docker API methods: this will most likelly include
+* proxy some of Docker API methods: this will most likely include
   filters (better yet, a white-list) of fields to copy over.
 
 
